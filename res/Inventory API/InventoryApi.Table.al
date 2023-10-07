@@ -5,7 +5,37 @@ table 50101 InventoryApi
 
     fields
     {
-        field(1; MyField; Integer)
+        field(1; LLMSCode; Text[30])
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(2; BarCode; Text[13])
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(3; LotNo; Text[50])
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(4; NewLotNo; Text[50])
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(5; EpxDate; Text[7])
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(6; ScanQty; Integer)
+        {
+            DataClassification = ToBeClassified;
+
+        }
+        field(7; WareHouse; Text[2])
         {
             DataClassification = ToBeClassified;
 
@@ -14,7 +44,7 @@ table 50101 InventoryApi
 
     keys
     {
-        key(Key1; MyField)
+        key(Key1; LLMSCode)
         {
             Clustered = true;
         }
@@ -25,22 +55,22 @@ table 50101 InventoryApi
 
     trigger OnInsert()
     begin
-
+        Message('Data insert');
     end;
 
     trigger OnModify()
     begin
-
+        Message('Data modify');
     end;
 
     trigger OnDelete()
     begin
-
+        Message('Data delete');
     end;
 
     trigger OnRename()
     begin
-
+        Message('Data rename');
     end;
 
 }
