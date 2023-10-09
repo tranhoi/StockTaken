@@ -54,18 +54,6 @@ page 50108 InventoryApi
     {
         area(Processing)
         {
-            action(ActionName)
-            {
-                ApplicationArea = All;
-
-                trigger OnAction()
-                begin
-
-                end;
-            }
-        }
-        area(Navigation)
-        {
             action(Hello)
             {
                 ApplicationArea = All;
