@@ -22,7 +22,8 @@ codeunit 50107 FoodImport
 
                 foreach JsonTk in ListKeys do begin
                     if JsonTk.IsValue then
-                        Message(JsonTk.AsValue().AsText());
+                        Message('1');
+                    Message(JsonTk.AsValue().AsText());
 
                     if JsonTk.IsArray then begin
                         JsonAr := JsonTk.AsArray();
