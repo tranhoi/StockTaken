@@ -1,4 +1,4 @@
-codeunit 50108 InventoryApiImport
+codeunit 50103 FoodImport
 {
     procedure GetData()
     var
@@ -11,7 +11,7 @@ codeunit 50108 InventoryApiImport
         ListKeys: List of [JsonToken];
         TextResponse: Text;
     begin
-        ApiLink := 'https://192.168.99.4/manage/api/api_bc365_stocktake.cfm';
+        ApiLink := 'https://api.sampleapis.com/beers/ale';
         if Client.Get(ApiLink, Response) then begin
             if Response.HttpStatusCode = 200 then begin
                 Response.Content.ReadAs(TextResponse);
@@ -45,7 +45,7 @@ codeunit 50108 InventoryApiImport
         JsonTk2: JsonToken;
         JsonKeys: Text;
         ObjectKeys: List of [Text];
-        DataImport: Record "InventoryApi";
+        DataImport: Record "Food";
     begin
         JsonOb2 := JsonTk.AsObject();
         ObjectKeys := JsonOb2.Keys;
@@ -53,10 +53,15 @@ codeunit 50108 InventoryApiImport
             JsonOb2.Get(JsonKeys, JsonTk2);
             if JsonTk2.IsValue then
                 case JsonKeys of
-                    'LLMSCODE':
-                        DataImport.LLMSCode := JsonTk2.AsValue().AsText();
-                    'BARCODE':
-                        DataImport.BarCode := JsonTk2.AsValue().AsText();
+                    'id':
+                        begin
+                            DataImport.Init();
+                            DataImport.Insert();
+                        end;
+                    'name':
+                        DataImport.Name := JsonTk2.AsValue().AsText();
+                    'price':
+                        DataImport.Price := JsonTk2.AsValue().AsText();
                 end;
         end;
     end;
