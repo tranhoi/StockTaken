@@ -1,4 +1,4 @@
-codeunit 50103 FoodImport
+codeunit 50107 FoodImport
 {
     procedure GetData()
     var

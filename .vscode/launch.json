@@ -9,7 +9,7 @@
             "server": "http://sv102251:8080/BC220",
             "serverInstance": "BC220",
             "authentication": "Windows",
-            "startupObjectId": 50103,
+            "startupObjectId": 50107,
             "startupObjectType": "Page",
             "breakOnError": "All",
             "launchBrowser": true,
