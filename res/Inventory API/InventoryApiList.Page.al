@@ -1,4 +1,4 @@
-page 50108 InventoryApiList
+page 50109 InventoryApiList
 {
     PageType = List;
     ApplicationArea = All;
@@ -64,7 +64,7 @@ page 50108 InventoryApiList
                 var
                     InvenApiImport: Codeunit InventoryApiImport;
                 begin
-                    //InvenApiImport.GetData();
+                    InvenApiImport.GetData();
                 end;
             }
         }
