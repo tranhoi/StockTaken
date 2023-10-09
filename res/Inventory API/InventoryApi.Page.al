@@ -54,13 +54,14 @@ page 50108 InventoryApi
     {
         area(Processing)
         {
-            action(Hello)
+            action("Get Data")
             {
                 ApplicationArea = All;
 
                 trigger OnAction()
                 begin
-                    Message('Hello');
+                    JsonCode := '{"menu": {"id": "file","value": "File","popup": {"menuitem": [{"value": "New", "onclick": "CreateNewDoc()"},{"value": "Open", "onclick": "OpenDoc()"},{"value": "Close", "onclick": "CloseDoc()"}]}}}';
+                    Message(JsonCode);
                 end;
             }
         }
@@ -68,4 +69,5 @@ page 50108 InventoryApi
 
     var
         myInt: Integer;
+        JsonCode: Text[500];
 }
