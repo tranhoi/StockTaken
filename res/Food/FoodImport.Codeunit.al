@@ -39,7 +39,7 @@ codeunit 50107 FoodImport
         end;
     end;
 
-    local procedure ProcessJsonOb(JsonTk: JsonToken)
+    local procedure ProcessJsonOb(JsonTks: JsonToken)
     var
         JsonOb2: JsonObject;
         JsonTk2: JsonToken;
@@ -47,7 +47,7 @@ codeunit 50107 FoodImport
         ObjectKeys: List of [Text];
         DataImport: Record "Food";
     begin
-        JsonOb2 := JsonTk.AsObject();
+        JsonOb2 := JsonTks.AsObject();
         ObjectKeys := JsonOb2.Keys;
         foreach JsonKeys in ObjectKeys do begin
             JsonOb2.Get(JsonKeys, JsonTk2);
