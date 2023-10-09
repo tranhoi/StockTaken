@@ -64,7 +64,7 @@ page 50108 InventoryApiList
                 var
                     InvenApiImport: Codeunit InventoryApiImport;
                 begin
-                    InvenApiImport.GetData();
+                    //InvenApiImport.GetData();
                 end;
             }
         }
