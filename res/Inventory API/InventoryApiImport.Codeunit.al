@@ -2,6 +2,7 @@ codeunit 50108 InventoryApiImport
 {
     procedure GetData()
     var
+        ApiLink: Text;
         Client: HttpClient;
         Response: HttpResponseMessage;
         JsonOb: JsonObject;
@@ -10,7 +11,8 @@ codeunit 50108 InventoryApiImport
         ListKeys: List of [JsonToken];
         TextResponse: Text;
     begin
-        if Client.Get('https://192.168.99.4/manage/api/api_bc365_stocktake.cfm', Response) then begin
+        ApiLink := 'https://192.168.99.4/manage/api/api_bc365_stocktake.cfm';
+        if Client.Get(ApiLink, Response) then begin
             if Response.HttpStatusCode = 200 then begin
                 Response.Content.ReadAs(TextResponse);
                 Message(TextResponse);
