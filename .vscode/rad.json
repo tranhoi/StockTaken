@@ -1,1 +1,1 @@
-﻿{"Added":[],"Modified":[],"Removed":[]}
+﻿{"Added":[{"Id":50107,"Kind":11,"Name":"InventoryApiImport","Namespace":""},{"Id":50107,"Kind":10,"Name":"InventoryApi","Namespace":""}],"Modified":[],"Removed":[{"Id":50108,"Kind":12,"Name":"InventoryApiList","Namespace":""},{"Id":50108,"Kind":10,"Name":"InventoryApi","Namespace":""},{"Id":50108,"Kind":11,"Name":"InventoryApiImport","Namespace":""}]}
