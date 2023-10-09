@@ -9,7 +9,7 @@ page 50108 InventoryApi
     {
         area(Content)
         {
-            group(GroupName)
+            repeater(LLMS)
             {
                 field(LLMSCode; rec.LLMSCode)
                 {
