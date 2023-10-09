@@ -63,7 +63,9 @@ page 50108 InventoryApi
 
                 end;
             }
-
+        }
+        area(Navigation)
+        {
             action(Hello)
             {
                 ApplicationArea = All;
