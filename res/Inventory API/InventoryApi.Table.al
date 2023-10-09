@@ -60,7 +60,7 @@ table 50108 InventoryApi
 
     trigger OnModify()
     begin
-        Message('Data modify');
+
     end;
 
     trigger OnDelete()
