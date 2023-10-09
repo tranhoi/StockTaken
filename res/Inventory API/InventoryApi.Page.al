@@ -63,6 +63,16 @@ page 50108 InventoryApi
 
                 end;
             }
+
+            action(Hello)
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                begin
+                    Message('Hello');
+                end;
+            }
         }
     }
 
