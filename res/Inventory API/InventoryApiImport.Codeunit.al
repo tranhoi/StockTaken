@@ -14,6 +14,7 @@ codeunit 50108 InventoryApiImport
         ApiLink := 'https://192.168.99.4/manage/api/api_bc365_stocktake.cfm';
         if Client.Get(ApiLink, Response) then begin
             if Response.HttpStatusCode = 200 then begin
+                Message('Error');
                 Response.Content.ReadAs(TextResponse);
                 Message(TextResponse);
 
