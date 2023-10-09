@@ -1,4 +1,4 @@
-codeunit 50107 InventoryApiImport
+codeunit 50108 InventoryApiImport
 {
     procedure GetData()
     var
