@@ -1,6 +1,6 @@
-page 50101 InventoryApi
+page 50108 InventoryApi
 {
-    PageType = Card;
+    PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = InventoryApi;
