@@ -8,38 +8,13 @@ table 50108 InventoryApi
         field(1; LLMSCode; Text[30])
         {
             DataClassification = ToBeClassified;
-
         }
-        field(2; BarCode; Text[13])
-        {
-            DataClassification = ToBeClassified;
-
-        }
-        field(3; LotNo; Text[50])
-        {
-            DataClassification = ToBeClassified;
-
-        }
-        field(4; NewLotNo; Text[50])
-        {
-            DataClassification = ToBeClassified;
-
-        }
-        field(5; EpxDate; Text[7])
-        {
-            DataClassification = ToBeClassified;
-
-        }
-        field(6; ScanQty; Integer)
-        {
-            DataClassification = ToBeClassified;
-
-        }
-        field(7; WareHouse; Text[2])
-        {
-            DataClassification = ToBeClassified;
-
-        }
+        field(2; BarCode; Text[13]) { }
+        field(3; LotNo; Text[50]) { }
+        field(4; NewLotNo; Text[50]) { }
+        field(5; EpxDate; Text[7]) { }
+        field(6; ScanQty; Integer) { }
+        field(7; WareHouse; Text[2]) { }
     }
 
     keys

@@ -1,4 +1,4 @@
-page 50108 InventoryApi
+page 50108 InventoryApiList
 {
     PageType = List;
     ApplicationArea = All;
@@ -57,17 +57,16 @@ page 50108 InventoryApi
             action("Get Data")
             {
                 ApplicationArea = All;
-
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
                 trigger OnAction()
+                var
+                    InvenApiImport: Codeunit InventoryApiImport;
                 begin
-                    JsonCode := '{"menu": {"id": "file","value": "File","popup": {"menuitem": [{"value": "New", "onclick": "CreateNewDoc()"},{"value": "Open", "onclick": "OpenDoc()"},{"value": "Close", "onclick": "CloseDoc()"}]}}}';
-                    Message(JsonCode);
+                    InvenApiImport.GetData();
                 end;
             }
         }
     }
-
-    var
-        myInt: Integer;
-        JsonCode: Text[500];
 }
