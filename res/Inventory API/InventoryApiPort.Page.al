@@ -2,7 +2,6 @@ page 50112 InventoryApiCart
 {
     PageType = Card;
     Caption = 'Call inventory api';
-    Editable = false;
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = InventoryApi;
@@ -53,7 +52,7 @@ page 50112 InventoryApiCart
     {
         area(Processing)
         {
-            action(ActionName)
+            action("Call Api")
             {
                 ApplicationArea = All;
 
