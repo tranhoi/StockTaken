@@ -1,4 +1,4 @@
-page 50102 InventoryPort
+page 50112 InventoryApiCart
 {
     PageType = Card;
     Caption = 'Call inventory api';
