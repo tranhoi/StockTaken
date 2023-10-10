@@ -1,4 +1,4 @@
-page 50108 InventoryApi
+page 50101 InventoryApi
 {
     PageType = List;
     ApplicationArea = All;

@@ -1,4 +1,4 @@
-table 50107 Food
+table 50103 Food
 {
     Caption = 'Foods';
     DataClassification = ToBeClassified;

@@ -1,4 +1,4 @@
-table 50108 InventoryApi
+table 50101 InventoryApi
 {
     Caption = 'Inventory Api';
     DataClassification = ToBeClassified;
