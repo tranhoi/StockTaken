@@ -4,6 +4,7 @@ page 50111 InventoryApiList
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = InventoryApi;
+    CardPageID = InventoryApiCart;
 
     layout
     {
