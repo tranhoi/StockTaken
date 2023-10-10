@@ -1,21 +1,50 @@
 page 50102 InventoryPort
 {
     PageType = Card;
+    Caption = 'Call inventory api';
+    Editable = false;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = TableName;
+    SourceTable = InventoryApi;
 
     layout
     {
         area(Content)
         {
-            group(GroupName)
+            field(LLMSCode; rec.LLMSCode)
             {
-                field(Name; NameSource)
-                {
-                    ApplicationArea = All;
+                ApplicationArea = All;
 
-                }
+            }
+            field(BarCode; rec.BarCode)
+            {
+                ApplicationArea = All;
+
+            }
+            field(LotNo; rec.LotNo)
+            {
+                ApplicationArea = All;
+
+            }
+            field(NewLotNo; rec.NewLotNo)
+            {
+                ApplicationArea = All;
+
+            }
+            field(EpxDate; rec.EpxDate)
+            {
+                ApplicationArea = All;
+
+            }
+            field(ScanQty; rec.ScanQty)
+            {
+                ApplicationArea = All;
+
+            }
+            field(WareHouse; rec.WareHouse)
+            {
+                ApplicationArea = All;
+
             }
         }
     }
@@ -35,7 +64,4 @@ page 50102 InventoryPort
             }
         }
     }
-
-    var
-        myInt: Integer;
 }
