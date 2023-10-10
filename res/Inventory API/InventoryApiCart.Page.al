@@ -58,7 +58,7 @@ page 50112 InventoryApiCart
 
                 trigger OnAction()
                 begin
-
+                    Message('http://113.33.152.228/manage/api/api_bc365_stocktake.cfm');
                 end;
             }
         }
