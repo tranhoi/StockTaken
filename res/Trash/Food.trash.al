@@ -5,8 +5,8 @@ table 50123 Food
     fields
     {
         field(1; "No."; Integer) { AutoIncrement = true; }
-        field(2; Name; Text[50]) { }
-        field(3; Price; Text[9]) { }
+        field(2; Name; Text[100]) { }
+        field(3; Price; Text[10]) { }
     }
 
     keys
