@@ -70,7 +70,6 @@ page 50112 InventoryApiCart
         JsonOb: JsonObject;
     begin
         Llms.Get(LLMSCode_);
-        JsonOb.Add('LLMSCODE', Llms.LLMSCode);
         JsonOb.Add('REQDATA', TasksToJson(Llms.LLMSCode));
         exit(JsonOb);
     end;
