@@ -4,7 +4,7 @@ page 50112 InventoryApiCart
     Caption = 'Call inventory api';
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = InventoryApi;
+    SourceTable = LLMS;
 
     layout
     {
@@ -47,7 +47,6 @@ page 50112 InventoryApiCart
             }
         }
     }
-
     actions
     {
         area(Processing)
@@ -55,12 +54,21 @@ page 50112 InventoryApiCart
             action("Call Api")
             {
                 ApplicationArea = All;
-
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
                 trigger OnAction()
                 begin
-                    Message('http://113.33.152.228/manage/api/api_bc365_stocktake.cfm');
+                    Message('%1', Format(ConvertToJson(Rec.LLMSCode)));
                 end;
             }
         }
     }
+    local procedure ConvertToJson(LLMSCode: Text): JsonObject
+    var
+        InvApi: Record LLMS;
+        JsonOb: JsonObject;
+    begin
+
+    end;
 }

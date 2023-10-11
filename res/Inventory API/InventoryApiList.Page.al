@@ -3,7 +3,7 @@ page 50111 InventoryApiList
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = InventoryApi;
+    SourceTable = LLMS;
     CardPageID = InventoryApiCart;
 
     layout
@@ -55,7 +55,7 @@ page 50111 InventoryApiList
     {
         area(Processing)
         {
-            action("Get Data")
+            action("Get data")
             {
                 ApplicationArea = All;
                 Promoted = true;

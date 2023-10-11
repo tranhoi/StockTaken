@@ -45,7 +45,7 @@ codeunit 50111 InventoryApiImport
         JsonTk2: JsonToken;
         JsonKeys: Text;
         ObjectKeys: List of [Text];
-        DataImport: Record "InventoryApi";
+        DataImport: Record "LLMS";
     begin
         JsonOb2 := JsonTk.AsObject();
         ObjectKeys := JsonOb2.Keys;

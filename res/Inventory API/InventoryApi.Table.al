@@ -1,4 +1,4 @@
-table 50111 InventoryApi
+table 50111 LLMS
 {
     Caption = 'Inventory Api';
     DataClassification = ToBeClassified;
