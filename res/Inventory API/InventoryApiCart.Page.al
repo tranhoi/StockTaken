@@ -87,6 +87,5 @@ page 50112 InventoryApiCart
                 JsonAr.Add(Tools.Rec2Json(Task));
             until Task.Next() = 0;
         exit(JsonAr);
-        son
     end;
 }
