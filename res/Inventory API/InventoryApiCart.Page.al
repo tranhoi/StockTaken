@@ -79,7 +79,7 @@ page 50112 InventoryApiCart
     var
         Task: Record LLMS;
         JsonAr: JsonArray;
-        Tools: Codeunit "Json Tools";
+        Tools: Codeunit "Sea Json Tools";
     begin
         Task.SetRange(LLMSCode, LLMSCode__);
         if Task.FindSet() then

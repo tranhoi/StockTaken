@@ -1,4 +1,4 @@
-codeunit 50122 "Json Tools"
+codeunit 50122 "Sea Json Tools"
 {
     procedure Json2Rec(JO: JsonObject; Rec: Variant): Variant
     var
