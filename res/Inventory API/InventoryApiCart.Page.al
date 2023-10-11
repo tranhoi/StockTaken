@@ -64,11 +64,29 @@ page 50112 InventoryApiCart
             }
         }
     }
-    local procedure ConvertToJson(LLMSCode: Text): JsonObject
+    local procedure ConvertToJson(LLMSCode_: Text): JsonObject
     var
-        InvApi: Record LLMS;
+        Llms: Record LLMS;
         JsonOb: JsonObject;
     begin
+        Llms.Get(LLMSCode_);
+        JsonOb.Add('LLMSCODE', Llms.LLMSCode);
+        JsonOb.Add('REQDATA', TasksToJson(Llms.LLMSCode));
+        exit(JsonOb);
+    end;
 
+    local procedure TasksToJson(LLMSCode__: Text): JsonArray
+    var
+        Task: Record LLMS;
+        JsonAr: JsonArray;
+        Tools: Codeunit "Json Tools";
+    begin
+        Task.SetRange(LLMSCode, LLMSCode__);
+        if Task.FindSet() then
+            repeat
+                JsonAr.Add(Tools.Rec2Json(Task));
+            until Task.Next() = 0;
+        exit(JsonAr);
+        son
     end;
 }
