@@ -58,8 +58,16 @@ page 50112 InventoryApiCart
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 trigger OnAction()
+                var
+                    apiconnector: DotNet apiconnector;
+                    URL: Label 'https://192.168.99.4/manage/api/api_bc365_stocktake.cfm';
+                    JSonRoot: JsonObject;
+                    JsonDt: Text;
                 begin
                     Message('%1', Format(ConvertToJson(Rec.ID)));
+                    JSonRoot := ConvertToJson(Rec.ID);
+                    JSonRoot.WriteTo(JsonDt);
+                    Message(apiconnector.postData(URL, JsonDt));
                 end;
             }
         }
