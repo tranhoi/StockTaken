@@ -96,7 +96,7 @@ page 50111 InventoryApiList
                     if LLMSRecord.FindSet() then
                         repeat
                             JsonAr.Add(TasksToJson(LLMSRecord.ID));
-                        until LLMSRecord.Next() = 1;
+                        until LLMSRecord.Next = 1;
                     JsonOb.Add('REQDATA', JsonAr);
                     JsonOb.WriteTo(JsonDt);
                     Message('%1', JsonDt);
