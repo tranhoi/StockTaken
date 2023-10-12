@@ -30,7 +30,7 @@ page 50112 InventoryApiCart
                 ApplicationArea = All;
 
             }
-            field(EpxDate; rec.EpxDate)
+            field(EpxDate; rec.ExpDate)
             {
                 ApplicationArea = All;
 

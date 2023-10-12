@@ -33,7 +33,7 @@ page 50111 InventoryApiList
                     ApplicationArea = All;
 
                 }
-                field(EpxDate; rec.EpxDate)
+                field(EpxDate; rec.ExpDate)
                 {
                     ApplicationArea = All;
 
@@ -98,7 +98,7 @@ page 50111 InventoryApiList
                         repeat
                             Clear(JSonItem);
                             JSonItem.Add('NEWLOTNO', LLMSRecord.NewLotNo);
-                            JSonItem.Add('EXPDATE', LLMSRecord.EpxDate);
+                            JSonItem.Add('EXPDATE', LLMSRecord.ExpDate);
                             JSonItem.Add('WAREHOUSE', LLMSRecord.Warehouse);
                             JSonItem.Add('LOTNO', LLMSRecord.LotNo);
                             JSonItem.Add('BARCODE', LLMSRecord.Barcode);

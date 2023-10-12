@@ -10,7 +10,7 @@ table 50111 LLMS
         field(3; BarCode; Text[13]) { }
         field(4; LotNo; Text[50]) { }
         field(5; NewLotNo; Text[50]) { }
-        field(6; EpxDate; Text[7]) { }
+        field(6; ExpDate; Text[7]) { }
         field(7; ScanQty; Integer) { }
         field(8; WareHouse; Text[2]) { }
     }
