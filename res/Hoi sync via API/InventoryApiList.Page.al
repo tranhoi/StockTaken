@@ -86,11 +86,19 @@ page 50111 InventoryApiList
                 var
                     apiconnector: DotNet apiconnector;
                     URL: Label 'https://192.168.99.4/manage/api/api_bc365_stocktake.cfm';
-                    JSonRoot: JsonObject;
                     JsonDt: Text;
+
+                    LLMSRecord: Record LLMS;
+                    JsonOb: JsonObject;
+                    JsonAr: JsonArray;
                 begin
-                    JSonRoot := ConvertToJsonList(Rec.ID);
-                    JSonRoot.WriteTo(JsonDt);
+                    CurrPage.GetRecord(LLMSRecord);
+                    if LLMSRecord.FindSet() then
+                        repeat
+                            JsonAr.Add(TasksToJson(LLMSRecord.ID));
+                        until LLMSRecord.Next() = 1;
+                    JsonOb.Add('REQDATA', JsonAr);
+                    JsonOb.WriteTo(JsonDt);
                     Message('%1', JsonDt);
                     Message(apiconnector.postData(URL, JsonDt));
                 end;
@@ -103,22 +111,22 @@ page 50111 InventoryApiList
         JsonOb: JsonObject;
         JsonAr: JsonArray;
     begin
+        CurrPage.GetRecord(LLMSRecord);
         if LLMSRecord.FindSet() then
             repeat
-                LLMSRecord.Get(ID_);
-                JsonAr.Add(TasksToJson(LLMSRecord.LLMSCode));
-            until LLMSRecord.Next() = 0;
+                JsonAr.Add(TasksToJson(LLMSRecord.ID));
+            until LLMSRecord.Next() = 1;
         JsonOb.Add('REQDATA', JsonAr);
         exit(JsonOb);
     end;
 
-    local procedure TasksToJson(LLMSCode__: Text): JsonArray
+    local procedure TasksToJson(ID_: Integer): JsonArray
     var
         LLMSRecord: Record LLMS;
         JsonAr: JsonArray;
         Tools: Codeunit "Sea Json Tools";
     begin
-        LLMSRecord.SetRange(LLMSCode, LLMSCode__);
+        LLMSRecord.SetRange(ID, ID_);
         if LLMSRecord.FindSet() then
             repeat
                 JsonAr.Add(Tools.Rec2Json(LLMSRecord));
