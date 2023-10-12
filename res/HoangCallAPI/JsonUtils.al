@@ -1,4 +1,4 @@
-codeunit 60099 "Json Utils"
+codeunit 70002 "Json Utilss"
 {
 
     procedure Rec2Json(Rec: Variant): JsonObject

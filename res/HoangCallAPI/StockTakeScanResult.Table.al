@@ -1,4 +1,4 @@
-table 60030 "Stock Take Scan Result"
+table 60099 "Stock Take Scan Resultt"
 {
     DataClassification = ToBeClassified;
     fields
@@ -59,7 +59,7 @@ table 60030 "Stock Take Scan Result"
 
     trigger OnInsert()
     var
-        LastSeqRec: Record "Stock Take Scan Result";
+        LastSeqRec: Record "Stock Take Scan Resultt";
     begin
         if not LastSeqRec.FindLast() then
             Seq := 1

@@ -1,7 +1,7 @@
 page 60031 "Stock Take Scan Result List"
 {
     PageType = List;
-    SourceTable = "Stock Take Scan Result";
+    SourceTable = "Stock Take Scan Resultt";
     ApplicationArea = All;
     Editable = true;
 
@@ -72,8 +72,8 @@ page 60031 "Stock Take Scan Result List"
 
                 trigger OnAction();
                 var
-                    ApiResponseDetailsRec: Record "API Response Details";
-                    ApiCallHistoryRec: Record "API Call History";
+                    ApiResponseDetailsRec: Record "API Response Detailss";
+                    ApiCallHistoryRec: Record "API Call Historyy";
                 begin
                     PostData(ApiResponseDetailsRec, ApiCallHistoryRec);
                     CurrPage.Update();
@@ -87,7 +87,7 @@ page 60031 "Stock Take Scan Result List"
 
                 trigger OnAction();
                 var
-                    APICallHistoryPage: Page "API Call History";
+                    APICallHistoryPage: Page "API Call Historyy";
                 begin
                     APICallHistoryPage.Run();
                 end;
@@ -98,13 +98,13 @@ page 60031 "Stock Take Scan Result List"
     local procedure OpenAPIResponseDetailsPage(ParentCode: Code[50])
     var
         // ResponseDetailsPage: Page "API Response Details";
-        ResponseDetailsRecord: Record "API Response Details";
+        ResponseDetailsRecord: Record "API Response Detailss";
     begin
         ResponseDetailsRecord.SetFilter("ParentCode", ParentCode);
         Page.RunModal(60011, ResponseDetailsRecord);
     end;
 
-    procedure PostData(var ApiResponseDetailsRec: Record "API Response Details"; var ApiCallHistoryRec: Record "API Call History")
+    procedure PostData(var ApiResponseDetailsRec: Record "API Response Detailss"; var ApiCallHistoryRec: Record "API Call Historyy")
     var
         Client: HttpClient;
         RequestMessage: HttpRequestMessage;
@@ -124,13 +124,13 @@ page 60031 "Stock Take Scan Result List"
         CurrentTime: Text;
 
         TodayDate: Text[8];
-        StockTakeRec: Record "Stock Take Scan Result";
+        StockTakeRec: Record "Stock Take Scan Resultt";
         ExcludeFields: List of [Text];
         ReqData: JsonArray;
         ReqDataTxt: Text;
         StockTakeScanJsonObj: JsonObject;
 
-        JU: Codeunit "Json Utils";
+        JU: Codeunit "Json Utilss";
     begin
         TodayDate := DelChr(Format(Today(), 0, 9), '=', '-'); // yyyyMMdd
         CurrentTime := Format(CurrentDateTime, 0, 9); // yyyy-MM-ddThh:mm:ss.SSSZ

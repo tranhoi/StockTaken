@@ -1,10 +1,10 @@
-page 50302 PageCheckStokeTake
+page 70004 PageCheckStokeTake
 {
     ApplicationArea = All;
     Caption = 'Check Stoke Take';
     PageType = List;
     UsageCategory = Lists;
-    SourceTable = TableStockTakeScanResult;
+    SourceTable = TableStockTakeScanResultt;
     Editable = true;
 
     layout
@@ -102,7 +102,7 @@ page 50302 PageCheckStokeTake
                     JsonValue: JsonToken;
                     Value1: Text;
                     Value2: Text;
-                    DataScanResult: Record TableStockTakeScanResult;
+                    DataScanResult: Record TableStockTakeScanResultt;
                     Parapost: JsonObject;
                     ParaPostText: Text;
                     ReqData: JsonObject;

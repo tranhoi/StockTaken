@@ -1,4 +1,4 @@
-table 50300 TableStockTakeScanResult
+table 50310 TableStockTakeScanResultt
 {
     Caption = 'StockTakeScanResult';
     DataClassification = ToBeClassified;

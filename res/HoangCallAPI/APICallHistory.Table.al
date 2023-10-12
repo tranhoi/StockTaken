@@ -1,4 +1,4 @@
-table 60000 "API Call History"
+table 60009 "API Call Historyy"
 {
     DataClassification = ToBeClassified;
     fields

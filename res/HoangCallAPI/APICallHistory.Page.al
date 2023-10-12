@@ -1,7 +1,7 @@
-page 60001 "API Call History"
+page 70005 "API Call Historyy"
 {
     PageType = List;
-    SourceTable = "API Call History";
+    SourceTable = "API Call Historyy";
     ApplicationArea = All;
     Editable = false;
 
@@ -60,7 +60,7 @@ page 60001 "API Call History"
     local procedure OpenAPIResponseDetailsPage(ParentCode: Code[50])
     var
         // ResponseDetailsPage: Page "API Response Details";
-        ResponseDetailsRecord: Record "API Response Details";
+        ResponseDetailsRecord: Record "API Response Detailss";
     begin
         ResponseDetailsRecord.SetFilter("ParentCode", ParentCode);
         Page.RunModal(60011, ResponseDetailsRecord);

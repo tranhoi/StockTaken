@@ -1,9 +1,9 @@
-page 50301 PageStockTakeScanResult
+page 70003 PageStockTakeScanResult
 {
     ApplicationArea = All;
     Caption = 'Stock Take Scan Result';
     PageType = List;
-    SourceTable = TableStockTakeScanResult;
+    SourceTable = TableStockTakeScanResultt;
     UsageCategory = Lists;
 
     layout
@@ -85,7 +85,7 @@ page 50301 PageStockTakeScanResult
                     JsonValue: JsonToken;
                     Value1: Text;
                     Value2: Text;
-                    DataScanResult: Record TableStockTakeScanResult;
+                    DataScanResult: Record TableStockTakeScanResultt;
                 begin
                     JsonPara := '{"LLMSCODE": "AC001-1418510100", "Barcode": "0630175507648", "LotNo":"N1220400202505", "NewLotNo": "", "Expdate": "2025/05", "ScanQty":"20", "WareHouse": "SG"}';
                     JsonString := varCheckAPI.PostRequest(JsonPara);

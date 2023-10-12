@@ -1,4 +1,4 @@
-pageextension 50300 ExtMenuTopStockTakeScanResult extends "Order Processor Role Center"
+pageextension 70005 ExtMenuTopStockTakeScanResult extends "Order Processor Role Center"
 {
     actions
     {

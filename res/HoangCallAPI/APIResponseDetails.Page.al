@@ -1,7 +1,7 @@
 page 60011 "API Response Details"
 {
     PageType = List;
-    SourceTable = "API Response Details";
+    SourceTable = "API Response Detailss";
     ApplicationArea = All;
     Editable = false;
 
