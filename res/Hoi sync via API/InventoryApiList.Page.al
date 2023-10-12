@@ -93,6 +93,8 @@ page 50111 InventoryApiList
                     JsonAr: JsonArray;
 
                     NewJsondDt: Text;
+                    NewJsondDt2: Text;
+                    Length: Integer;
                 begin
                     CurrPage.GetRecord(LLMSRecord);
                     if LLMSRecord.FindSet() then
@@ -101,7 +103,9 @@ page 50111 InventoryApiList
                         until LLMSRecord.Next() = 0;
                     JsonOb.Add('REQDATA', JsonAr);
                     JsonOb.WriteTo(JsonDt);
-                    NewJsondDt := DelChr(JsonDt, '<>', '[]');
+                    NewJsondDt := DelStr(JsonDt, 12, 1);
+                    Length := StrLen(NewJsondDt) - 1;
+                    NewJsondDt2 := DelStr(JsonDt, Length, 1);
                     Message('%1', NewJsondDt);
                     Message(apiconnector.postData(URL, JsonDt));
                 end;
