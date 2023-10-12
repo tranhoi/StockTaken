@@ -89,9 +89,9 @@ page 50111 InventoryApiList
                     JSonRoot: JsonObject;
                     JsonDt: Text;
                 begin
-                    //Message('%1', Format(ConvertToJsonList(Rec.ID)));
                     JSonRoot := ConvertToJsonList(Rec.ID);
                     JSonRoot.WriteTo(JsonDt);
+                    Message('%1', JsonDt);
                     Message(apiconnector.postData(URL, JsonDt));
                 end;
             }
