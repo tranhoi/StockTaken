@@ -1,4 +1,4 @@
-page 60031 "Stock Take Scan Result List"
+page 70010 "Stock Take Scan Result Listt"
 {
     PageType = List;
     SourceTable = "Stock Take Scan Resultt";

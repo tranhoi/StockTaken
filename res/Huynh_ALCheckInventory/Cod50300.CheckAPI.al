@@ -1,4 +1,4 @@
-codeunit 70001 CodunitCheckAPI
+codeunit 70001 CodunitCheckAPIi
 {
     procedure PostRequest(json: Text) ResponseText: Text
     var

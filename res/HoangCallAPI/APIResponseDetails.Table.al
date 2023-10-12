@@ -1,4 +1,4 @@
-table 60999 "API Response Detailss"
+table 70008 "API Response Detailss"
 {
     DataClassification = ToBeClassified;
     fields

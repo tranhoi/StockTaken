@@ -1,4 +1,4 @@
-table 60099 "Stock Take Scan Resultt"
+table 70009 "Stock Take Scan Resultt"
 {
     DataClassification = ToBeClassified;
     fields

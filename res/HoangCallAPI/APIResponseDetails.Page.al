@@ -1,4 +1,4 @@
-page 60011 "API Response Details"
+page 70007 "API Response Detailss"
 {
     PageType = List;
     SourceTable = "API Response Detailss";

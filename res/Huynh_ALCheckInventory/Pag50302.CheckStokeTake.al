@@ -1,4 +1,4 @@
-page 70004 PageCheckStokeTake
+page 70004 PageCheckStokeTakee
 {
     ApplicationArea = All;
     Caption = 'Check Stoke Take';
@@ -91,7 +91,7 @@ page 70004 PageCheckStokeTake
 
                 trigger OnAction()
                 var
-                    varCheckAPI: Codeunit CodunitCheckAPI;
+                    varCheckAPI: Codeunit CodunitCheckAPIi;
                     JsonObj: JsonObject;
                     JsonArr: JsonArray;
                     JsonString: Text;

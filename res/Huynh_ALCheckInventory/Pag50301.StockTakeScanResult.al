@@ -1,4 +1,4 @@
-page 70003 PageStockTakeScanResult
+page 70003 PageStockTakeScanResultt
 {
     ApplicationArea = All;
     Caption = 'Stock Take Scan Result';
@@ -73,7 +73,7 @@ page 70003 PageStockTakeScanResult
 
                 trigger OnAction()
                 var
-                    varCheckAPI: Codeunit CodunitCheckAPI;
+                    varCheckAPI: Codeunit CodunitCheckAPIi;
                     JsonObj: JsonObject;
                     JsonArr: JsonArray;
                     JsonString: Text;
@@ -120,7 +120,7 @@ page 70003 PageStockTakeScanResult
             {
                 ApplicationArea = ALL;
                 CaptionML = ENU = 'Check Stoke Take';
-                RunObject = page PageCheckStokeTake;
+                RunObject = page PageCheckStokeTakee;
             }
         }
 

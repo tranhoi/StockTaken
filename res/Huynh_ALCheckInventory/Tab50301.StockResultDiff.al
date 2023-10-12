@@ -1,4 +1,4 @@
-table 50309 TableStockResultDifff
+table 70012 TableStockResultDifff
 {
     Caption = 'StockResultDiff';
     DataClassification = ToBeClassified;

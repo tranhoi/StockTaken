@@ -8,7 +8,7 @@ pageextension 70005 ExtMenuTopStockTakeScanResult extends "Order Processor Role 
             {
                 ApplicationArea = ALL;
                 CaptionML = ENU = 'Stack Take Scan Result';
-                RunObject = page PageStockTakeScanResult;
+                RunObject = page PageStockTakeScanResultt;
             }
         }
     }
