@@ -103,7 +103,7 @@ page 50111 InventoryApiList
                         until LLMSRecord.Next() = 0;
                     JsonOb.Add('REQDATA', JsonAr);
                     JsonOb.WriteTo(JsonDt);
-                    Where := '';
+                    Where := '<>';
                     Which := '[]';
                     NewJsondDt := DelChr(JsonDt, Where, Which);
                     Message('%1', NewJsondDt);
