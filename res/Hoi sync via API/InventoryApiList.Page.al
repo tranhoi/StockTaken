@@ -69,49 +69,7 @@ page 50111 InventoryApiList
                     InvenApiImport.GetData();
                 end;
             }
-            action("Post data")
-            {
-                ApplicationArea = All;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                trigger OnAction()
-                var
-                    LLMSRecord: Record LLMS;
-                    JSonRoot: JsonObject;
-                    JSonItem: JsonObject;
-                    JsonAr: JsonArray;
-                    JsonDt: Text;
-                    HttpCt: HttpContent;
-                    HttpHd: HttpHeaders;
-                    HttpCl: HttpClient;
-                    HttpRM: HttpResponseMessage;
-                    URL: Label 'https://192.168.99.4/manage/api/api_bc365_stocktake.cfm';
-                    Response: Text;
-                    apiconnector: DotNet apiconnector;
-                    Base64: Codeunit "Base64 Convert";
-                begin
 
-                    CurrPage.GetRecord(LLMSRecord);
-                    CurrPage.SetSelectionFilter(LLMSRecord);
-                    if LLMSRecord.FindSet() then
-                        repeat
-                            Clear(JSonItem);
-                            JSonItem.Add('NEWLOTNO', LLMSRecord.NewLotNo);
-                            JSonItem.Add('EXPDATE', LLMSRecord.ExpDate);
-                            JSonItem.Add('WAREHOUSE', LLMSRecord.Warehouse);
-                            JSonItem.Add('LOTNO', LLMSRecord.LotNo);
-                            JSonItem.Add('BARCODE', LLMSRecord.Barcode);
-                            JSonItem.Add('LLMSCODE', LLMSRecord.LLMSCode);
-                            JSonItem.Add('SCANQTY', LLMSRecord.ScanQty);
-                            JsonAr.Add(JSonItem);
-                        until LLMSRecord.Next() = 0;
-
-                    JSonRoot.Add('REQDATA', JsonAr);
-                    JSonRoot.WriteTo(JsonDt);
-                    Message(apiconnector.postData(URL, JsonDt));
-                end;
-            }
             action("Post all data")
             {
                 ApplicationArea = All;
@@ -143,7 +101,7 @@ page 50111 InventoryApiList
             repeat
                 LLMSRecord.Get(ID_);
                 JsonAr.Add(TasksToJson(LLMSRecord.LLMSCode));
-            until LLMSRecord.Next() = 0;
+            until LLMSRecord.Next() = 1;
         JsonOb.Add('REQDATA', JsonAr);
         exit(JsonOb);
     end;
