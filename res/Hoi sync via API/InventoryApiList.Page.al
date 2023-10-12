@@ -89,7 +89,7 @@ page 50111 InventoryApiList
                     JSonRoot: JsonObject;
                     JsonDt: Text;
                 begin
-                    Message('%1', Format(ConvertToJsonList(Rec.ID)));
+                    //Message('%1', Format(ConvertToJsonList(Rec.ID)));
                     JSonRoot := ConvertToJsonList(Rec.ID);
                     JSonRoot.WriteTo(JsonDt);
                     Message(apiconnector.postData(URL, JsonDt));
@@ -107,7 +107,7 @@ page 50111 InventoryApiList
             repeat
                 LLMSRecord.Get(ID_);
                 JsonAr.Add(TasksToJson(LLMSRecord.LLMSCode));
-            until LLMSRecord.Next() = 1;
+            until LLMSRecord.Next() = 0;
         JsonOb.Add('REQDATA', JsonAr);
         exit(JsonOb);
     end;
