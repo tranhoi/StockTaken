@@ -91,6 +91,10 @@ page 50111 InventoryApiList
                     LLMSRecord: Record LLMS;
                     JsonOb: JsonObject;
                     JsonAr: JsonArray;
+
+                    Where: Text;
+                    Which: Text;
+                    NewJsondDt: Text;
                 begin
                     CurrPage.GetRecord(LLMSRecord);
                     if LLMSRecord.FindSet() then
@@ -99,7 +103,10 @@ page 50111 InventoryApiList
                         until LLMSRecord.Next() = 0;
                     JsonOb.Add('REQDATA', JsonAr);
                     JsonOb.WriteTo(JsonDt);
-                    Message('%1', JsonDt);
+                    Where := '';
+                    Which := '[]';
+                    NewJsondDt := DelChr(JsonDt, Where, Which);
+                    Message('%1', NewJsondDt);
                     Message(apiconnector.postData(URL, JsonDt));
                 end;
             }
@@ -112,16 +119,12 @@ page 50111 InventoryApiList
         JsonAr: JsonArray;
         JsonOb: JsonObject;
         Tools: Codeunit "Sea Json Tools";
-
-        JsonDt: Text;
     begin
         LLMSRecord.SetRange(ID, ID_);
         if LLMSRecord.FindSet() then
             repeat
                 JsonAr.Add(Tools.Rec2Json(LLMSRecord));
             until LLMSRecord.Next() = 0;
-        JsonAr.WriteTo(JsonDt);
-        Message('%1', JsonDt);
         exit(JsonAr);
     end;
 }
