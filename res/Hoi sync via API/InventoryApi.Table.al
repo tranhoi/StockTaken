@@ -5,47 +5,21 @@ table 50111 LLMS
 
     fields
     {
-        field(1; LLMSCode; Text[30])
-        {
-            DataClassification = ToBeClassified;
-        }
-        field(2; BarCode; Text[13]) { }
-        field(3; LotNo; Text[50]) { }
-        field(4; NewLotNo; Text[50]) { }
-        field(5; EpxDate; Text[7]) { }
-        field(6; ScanQty; Integer) { }
-        field(7; WareHouse; Text[2]) { }
+        field(1; ID; Integer) { AutoIncrement = true; }
+        field(2; LLMSCode; Text[30]) { }
+        field(3; BarCode; Text[13]) { }
+        field(4; LotNo; Text[50]) { }
+        field(5; NewLotNo; Text[50]) { }
+        field(6; EpxDate; Text[7]) { }
+        field(7; ScanQty; Integer) { }
+        field(8; WareHouse; Text[2]) { }
     }
 
     keys
     {
-        key(Key1; LLMSCode)
+        key(Key1; ID)
         {
             Clustered = true;
         }
     }
-
-    var
-        myInt: Integer;
-
-    trigger OnInsert()
-    begin
-        Message('Data insert');
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-        Message('Data delete');
-    end;
-
-    trigger OnRename()
-    begin
-        Message('Data rename');
-    end;
-
 }
