@@ -13,6 +13,12 @@ page 50111 InventoryApiList
         {
             repeater(LLMS)
             {
+                field(ID; rec.ID)
+                {
+                    ApplicationArea = All;
+                    Editable = false;
+
+                }
                 field(LLMSCode; rec.LLMSCode)
                 {
                     ApplicationArea = All;
