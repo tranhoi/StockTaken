@@ -137,12 +137,14 @@ page 50111 InventoryApiList
     var
         LLMSRecord: Record LLMS;
         JsonOb: JsonObject;
+        JsonAr: JsonArray;
     begin
         if LLMSRecord.FindSet() then
             repeat
                 LLMSRecord.Get(ID_);
-                JsonOb.Add('REQDATA', TasksToJson(LLMSRecord.LLMSCode));
+                JsonAr.Add(TasksToJson(LLMSRecord.LLMSCode));
             until LLMSRecord.Next() = 0;
+        JsonOb.Add('REQDATA', JsonAr);
         exit(JsonOb);
     end;
 
