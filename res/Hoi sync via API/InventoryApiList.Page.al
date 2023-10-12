@@ -87,14 +87,16 @@ page 50111 InventoryApiList
                     apiconnector: DotNet apiconnector;
                     URL: Label 'https://192.168.99.4/manage/api/api_bc365_stocktake.cfm';
                     JsonDt: Text;
+
                     LLMSRecord: Record LLMS;
                     JsonOb: JsonObject;
                     JsonAr: JsonArray;
                 begin
+                    CurrPage.GetRecord(LLMSRecord);
                     if LLMSRecord.FindSet() then
                         repeat
                             JsonAr.Add(TasksToJson(LLMSRecord.ID));
-                        until LLMSRecord.Next = 0;
+                        until LLMSRecord.Next() = 0;
                     JsonOb.Add('REQDATA', JsonAr);
                     JsonOb.WriteTo(JsonDt);
                     Message('%1', JsonDt);
