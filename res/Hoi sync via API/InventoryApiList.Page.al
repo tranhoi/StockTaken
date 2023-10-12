@@ -109,7 +109,7 @@ page 50111 InventoryApiList
                         until LLMSRecord.Next() = 0;
                     JSonRoot.Add('REQDATA', JsonAr);
                     JSonRoot.WriteTo(JsonDt);
-                    Message(apiconnector.postData('URL', JsonDt));
+                    Message(apiconnector.postData(URL, JsonDt));
                 end;
             }
         }
