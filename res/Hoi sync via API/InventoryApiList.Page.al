@@ -105,7 +105,7 @@ page 50111 InventoryApiList
                     JsonOb.WriteTo(JsonDt);
                     NewJsondDt := DelStr(JsonDt, 12, 1);
                     Length := StrLen(NewJsondDt) - 1;
-                    NewJsondDt2 := DelStr(JsonDt, Length, 1);
+                    NewJsondDt2 := DelStr(NewJsondDt, Length, 1);
                     Message('%1', NewJsondDt);
                     Message(apiconnector.postData(URL, JsonDt));
                 end;
