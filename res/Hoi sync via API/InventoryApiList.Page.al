@@ -125,20 +125,24 @@ page 50111 InventoryApiList
                     JSonRoot: JsonObject;
                     JsonDt: Text;
                 begin
-                    JSonRoot := ConvertToJson(Rec.ID);
+                    Message('%1', Format(ConvertToJsonList(Rec.ID)));
+                    JSonRoot := ConvertToJsonList(Rec.ID);
                     JSonRoot.WriteTo(JsonDt);
                     Message(apiconnector.postData(URL, JsonDt));
                 end;
             }
         }
     }
-    local procedure ConvertToJson(ID_: Integer): JsonObject
+    local procedure ConvertToJsonList(ID_: Integer): JsonObject
     var
         LLMSRecord: Record LLMS;
         JsonOb: JsonObject;
     begin
-        LLMSRecord.Get(ID_);
-        JsonOb.Add('REQDATA', TasksToJson(LLMSRecord.LLMSCode));
+        if LLMSRecord.FindSet() then
+            repeat
+                LLMSRecord.Get(ID_);
+                JsonOb.Add('REQDATA', TasksToJson(LLMSRecord.LLMSCode));
+            until LLMSRecord.Next() = 0;
         exit(JsonOb);
     end;
 
