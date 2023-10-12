@@ -91,40 +91,28 @@ page 50111 InventoryApiList
                     LLMSRecord: Record LLMS;
                     JsonOb: JsonObject;
                     JsonAr: JsonArray;
-
-                    NewJsondDt: Text;
-                    NewJsondDt2: Text;
-                    Length: Integer;
+                    JsonIt: JsonObject;
                 begin
                     CurrPage.GetRecord(LLMSRecord);
                     if LLMSRecord.FindSet() then
                         repeat
-                            JsonAr.Add(TasksToJson(LLMSRecord.ID));
+                            Clear(JsonIt);
+                            JsonIt.Add('NEWLOTNO', LLMSRecord.NewLotNo);
+                            JsonIt.Add('EXPDATE', LLMSRecord.ExpDate);
+                            JsonIt.Add('WAREHOUSE', LLMSRecord.Warehouse);
+                            JsonIt.Add('LOTNO', LLMSRecord.LotNo);
+                            JsonIt.Add('BARCODE', LLMSRecord.Barcode);
+                            JsonIt.Add('LLMSCODE', LLMSRecord.LLMSCode);
+                            JsonIt.Add('SCANQTY', LLMSRecord.ScanQty);
+                            JsonAr.Add(JsonIt);
+                        //Perform your action
                         until LLMSRecord.Next() = 0;
                     JsonOb.Add('REQDATA', JsonAr);
                     JsonOb.WriteTo(JsonDt);
-                    NewJsondDt := DelStr(JsonDt, 12, 1);
-                    Length := StrLen(NewJsondDt) - 1;
-                    NewJsondDt2 := DelStr(NewJsondDt, Length, 2);
-                    Message('%1', NewJsondDt2);
-                    Message(apiconnector.postData(URL, NewJsondDt2));
+                    Message('%1', JsonDt);
+                    Message(apiconnector.postData(URL, JsonDt));
                 end;
             }
         }
     }
-
-    local procedure TasksToJson(ID_: Integer): JsonArray
-    var
-        LLMSRecord: Record LLMS;
-        JsonAr: JsonArray;
-        JsonOb: JsonObject;
-        Tools: Codeunit "Sea Json Tools";
-    begin
-        LLMSRecord.SetRange(ID, ID_);
-        if LLMSRecord.FindSet() then
-            repeat
-                JsonAr.Add(Tools.Rec2Json(LLMSRecord));
-            until LLMSRecord.Next() = 0;
-        exit(JsonAr);
-    end;
 }
