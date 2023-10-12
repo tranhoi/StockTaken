@@ -59,28 +59,28 @@ page 50112 InventoryApiCart
                 PromotedIsBig = true;
                 trigger OnAction()
                 begin
-                    Message('%1', Format(ConvertToJson(Rec.LLMSCode)));
+                    Message('%1', Format(ConvertToJson(Rec.ID)));
                 end;
             }
         }
     }
-    local procedure ConvertToJson(LLMSCode_: Text): JsonObject
+    local procedure ConvertToJson(ID_: Integer): JsonObject
     var
         LLMSRecord: Record LLMS;
         JsonOb: JsonObject;
     begin
-        LLMSRecord.Get(LLMSCode_);
-        JsonOb.Add('REQDATA', TasksToJson(LLMSRecord.LLMSCode));
+        LLMSRecord.Get(ID_);
+        JsonOb.Add('REQDATA', TasksToJson(LLMSRecord.ID));
         exit(JsonOb);
     end;
 
-    local procedure TasksToJson(LLMSCode__: Text): JsonArray
+    local procedure TasksToJson(ID__: Integer): JsonArray
     var
         LLMSRecord: Record LLMS;
         JsonAr: JsonArray;
         Tools: Codeunit "Sea Json Tools";
     begin
-        LLMSRecord.SetRange(LLMSCode, LLMSCode__);
+        LLMSRecord.SetRange(ID, ID__);
         if LLMSRecord.FindSet() then
             repeat
                 JsonAr.Add(Tools.Rec2Json(LLMSRecord));
