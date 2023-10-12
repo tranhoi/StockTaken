@@ -48,7 +48,7 @@ codeunit 50122 "Sea Json Tools"
         if not Rec.IsRecord then
             error('Parameter Rec is not a record');
         Ref.GetTable(Rec);
-        for i := 1 to Ref.FieldCount() do begin
+        for i := 2 to Ref.FieldCount() do begin
             FRef := Ref.FieldIndex(i);
             case FRef.Class of
                 FRef.Class::Normal:
