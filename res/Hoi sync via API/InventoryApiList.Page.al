@@ -105,13 +105,54 @@ page 50111 InventoryApiList
                             JSonItem.Add('LLMSCODE', LLMSRecord.LLMSCode);
                             JSonItem.Add('SCANQTY', LLMSRecord.ScanQty);
                             JsonAr.Add(JSonItem);
-
                         until LLMSRecord.Next() = 0;
+
                     JSonRoot.Add('REQDATA', JsonAr);
+                    JSonRoot.WriteTo(JsonDt);
+                    Message(apiconnector.postData(URL, JsonDt));
+                end;
+            }
+            action("Post all data")
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                trigger OnAction()
+                var
+                    apiconnector: DotNet apiconnector;
+                    URL: Label 'https://192.168.99.4/manage/api/api_bc365_stocktake.cfm';
+                    JSonRoot: JsonObject;
+                    JsonDt: Text;
+                begin
+                    JSonRoot := ConvertToJson(Rec.ID);
                     JSonRoot.WriteTo(JsonDt);
                     Message(apiconnector.postData(URL, JsonDt));
                 end;
             }
         }
     }
+    local procedure ConvertToJson(ID_: Integer): JsonObject
+    var
+        LLMSRecord: Record LLMS;
+        JsonOb: JsonObject;
+    begin
+        LLMSRecord.Get(ID_);
+        JsonOb.Add('REQDATA', TasksToJson(LLMSRecord.LLMSCode));
+        exit(JsonOb);
+    end;
+
+    local procedure TasksToJson(LLMSCode__: Text): JsonArray
+    var
+        LLMSRecord: Record LLMS;
+        JsonAr: JsonArray;
+        Tools: Codeunit "Sea Json Tools";
+    begin
+        LLMSRecord.SetRange(LLMSCode, LLMSCode__);
+        if LLMSRecord.FindSet() then
+            repeat
+                JsonAr.Add(Tools.Rec2Json(LLMSRecord));
+            until LLMSRecord.Next() = 0;
+        exit(JsonAr);
+    end;
 }
