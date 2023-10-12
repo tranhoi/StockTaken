@@ -110,13 +110,18 @@ page 50111 InventoryApiList
     var
         LLMSRecord: Record LLMS;
         JsonAr: JsonArray;
+        JsonOb: JsonObject;
         Tools: Codeunit "Sea Json Tools";
+
+        JsonDt: Text;
     begin
         LLMSRecord.SetRange(ID, ID_);
         if LLMSRecord.FindSet() then
             repeat
                 JsonAr.Add(Tools.Rec2Json(LLMSRecord));
             until LLMSRecord.Next() = 0;
+        JsonAr.WriteTo(JsonDt);
+        Message('%1', JsonDt);
         exit(JsonAr);
     end;
 }
