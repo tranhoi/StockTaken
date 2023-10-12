@@ -105,20 +105,6 @@ page 50111 InventoryApiList
             }
         }
     }
-    local procedure ConvertToJsonList(ID_: Integer): JsonObject
-    var
-        LLMSRecord: Record LLMS;
-        JsonOb: JsonObject;
-        JsonAr: JsonArray;
-    begin
-        CurrPage.GetRecord(LLMSRecord);
-        if LLMSRecord.FindSet() then
-            repeat
-                JsonAr.Add(TasksToJson(LLMSRecord.ID));
-            until LLMSRecord.Next() = 1;
-        JsonOb.Add('REQDATA', JsonAr);
-        exit(JsonOb);
-    end;
 
     local procedure TasksToJson(ID_: Integer): JsonArray
     var
