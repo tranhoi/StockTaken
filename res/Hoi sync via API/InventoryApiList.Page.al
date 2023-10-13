@@ -89,6 +89,7 @@ page 50111 InventoryApiList
                     JsonDt: Text;
 
                     LLMSRecord: Record LLMS;
+                    ApiHistory: Record ApiHistory;
                     JsonOb: JsonObject;
                     JsonAr: JsonArray;
                     JsonIt: JsonObject;
@@ -105,12 +106,31 @@ page 50111 InventoryApiList
                             JsonIt.Add('LLMSCODE', LLMSRecord.LLMSCode);
                             JsonIt.Add('SCANQTY', LLMSRecord.ScanQty);
                             JsonAr.Add(JsonIt);
-                        //Perform your action
                         until LLMSRecord.Next() = 0;
                     JsonOb.Add('REQDATA', JsonAr);
                     JsonOb.WriteTo(JsonDt);
+
                     Message('%1', JsonDt);
+
+                    ApiHistory.Init();
+                    ApiHistory.JsonData := JsonDt;
+                    ApiHistory."Post time" := CURRENTDATETIME;
+                    ApiHistory.Insert();
+
                     Message(apiconnector.postData(URL, JsonDt));
+                end;
+            }
+            action("View Port History")
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                RunObject = page ApiHistory;
+
+                trigger OnAction()
+                begin
+
                 end;
             }
         }
